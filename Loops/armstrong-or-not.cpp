@@ -3,20 +3,21 @@ using namespace std;
 
 int main()
 {
-
-      cout << "enter a Number : ";
+      cout << "Enter a number: ";
       int n;
       cin >> n;
+
+      int original = n; // store original number
       int sum = 0;
 
       while (n > 0)
       {
             int last_digit = n % 10;
-            sum = sum + (last_digit * last_digit * last_digit); // Sum of All Digits
+            sum = sum + (last_digit * last_digit * last_digit);
             n = n / 10;
       }
 
-      if (sum == n)
+      if (sum == original)
       {
             cout << "Armstrong Number" << endl;
       }
