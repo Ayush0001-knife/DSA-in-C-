@@ -7,24 +7,38 @@ int main()
       int n;
       cin >> n;
 
-      int original = n; // store original number
+      int original = n;
+      int count = 0;
       int sum = 0;
 
-      while (n > 0)
+      // Count digits
+      int temp = n;
+      while (temp > 0)
       {
-            int last_digit = n % 10;
-            sum = sum + (last_digit * last_digit * last_digit);
-            n = n / 10;
+            count++;
+            temp = temp / 10;
+      }
+
+      // Calculate Armstrong sum
+      temp = n;
+      while (temp > 0)
+      {
+            int last_digit = temp % 10;
+
+            int power = 1;
+            for (int i = 0; i < count; i++)
+            {
+                  power *= last_digit;
+            }
+
+            sum += power;
+            temp = temp / 10;
       }
 
       if (sum == original)
-      {
             cout << "Armstrong Number" << endl;
-      }
       else
-      {
             cout << "Not an Armstrong Number" << endl;
-      }
 
       return 0;
 }
