@@ -1,0 +1,4 @@
+# C/C++ executables
+a.out
+*.out
+*.exe
