@@ -14,9 +14,8 @@ int main()
       {
             int third = first + second;
             cout << third << "  ";
-            first = second;
-            second = third;
+            first = second; // Update first to the value of second
+            second = third; // Update second to the value of third
       }
-
       return 0;
 }
