@@ -28,4 +28,6 @@ int main()
       cout << "Enter a number: ";
       cin >> n;
       printPrime(n);
+
+      return 0;
 }
