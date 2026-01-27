@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// This is The Brute Force Approach with time complexity O(n^2)
 int bruteForceApproach(int prices[], int n)
 {
       int max_profit = INT16_MIN;
