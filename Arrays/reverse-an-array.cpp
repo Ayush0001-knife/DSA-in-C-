@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// with extra spaces
+
 void printaArray(int arr[], int n)
 {
       for (int i = 0; i < n; i++)
