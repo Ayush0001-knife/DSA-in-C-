@@ -3,7 +3,7 @@ using namespace std;
 
 // with extra spaces
 
-void printaArray(int arr[], int n)
+void printArray(int arr[], int n)
 {
       for (int i = 0; i < n; i++)
       {
@@ -22,7 +22,7 @@ int main()
             newArr[n - i - 1] = arr[i];
       }
 
-      printaArray(newArr, n);
+      printArray(newArr, n);
 
       return 0;
 }
