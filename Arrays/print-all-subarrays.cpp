@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// Three loops will be required to print all subarrays of an array
+
 int main()
 {
       int arr[] = {1, 2, 3, 4, 5};
