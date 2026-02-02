@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// This is The Brute Force Approach with time complexity O(n^2)
+// This is The Brute Force Approach with time complexity O(n^2) and space complexity O(1)
 int bruteForceApproach(int prices[], int n)
 {
       int max_profit = INT16_MIN;
@@ -17,7 +17,7 @@ int bruteForceApproach(int prices[], int n)
       return max_profit;
 }
 
-// This is The Optimized Brute Force Approach with time complexity O(n^2)
+// This is The Optimized Brute Force Approach with time complexity O(n) and space complexity O(n)
 int optimizedBruteForceApproach(int prices[], int n)
 {
       int best_buy[n];
@@ -36,6 +36,10 @@ int optimizedBruteForceApproach(int prices[], int n)
             max_profit = max(max_profit, curr_profit);
       }
       return max_profit;
+}
+
+int greedyApproach(int prices[], int n)
+{
 }
 
 int main()
