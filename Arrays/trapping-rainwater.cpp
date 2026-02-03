@@ -2,6 +2,7 @@
 #include <algorithm>
 using namespace std;
 
+// This is The Brute Force Approach with time complexity O(n^2) and space complexity O(1)
 int bruteForceApproach(int heights[], int n)
 {
       // Edge case: less than 3 bars can't trap water
@@ -38,6 +39,12 @@ int bruteForceApproach(int heights[], int n)
       }
 
       return trappedWater;
+}
+
+int prefixArrayApproach(int heights[], int n)
+{
+      // To be implemented
+      return 0;
 }
 
 int main()
