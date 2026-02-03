@@ -40,6 +40,16 @@ int optimizedBruteForceApproach(int prices[], int n)
 
 int greedyApproach(int prices[], int n)
 {
+      int min_price = prices[0];
+      int max_profit = 0;
+
+      for (int i = 1; i < n; i++)
+      {
+            min_price = min(min_price, prices[i]);
+            int curr_profit = prices[i] - min_price;
+            max_profit = max(max_profit, curr_profit);
+      }
+      return max_profit;
 }
 
 int main()
@@ -48,7 +58,8 @@ int main()
       int n = sizeof(prices) / sizeof(int);
 
       // int max_profit = bruteForceApproach(prices, n);
-      int max_profit = optimizedBruteForceApproach(prices, n);
+      // int max_profit = optimizedBruteForceApproach(prices, n);
+      int max_profit = greedyApproach(prices, n);
 
       cout << "Max Profit : " << max_profit;
       return 0;
