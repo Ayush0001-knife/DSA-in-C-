@@ -80,16 +80,47 @@ int prefixArrayApproach(int heights[], int n)
 int twoPointersApproach(int heights[], int n)
 {
       int trappedWater = 0;
+      int left = 0, right = n - 1, leftMax = 0, rightMax = 0;
+
+      while (left < right)
+      {
+            if (heights[left] < heights[right])
+            {
+                  if (heights[left] >= leftMax)
+                  {
+                        leftMax = heights[left];
+                  }
+                  else
+                  {
+                        trappedWater += leftMax - heights[left];
+                  }
+                  left++;
+            }
+            else
+            {
+                  if (heights[right] >= rightMax)
+                  {
+                        rightMax = heights[right];
+                  }
+                  else
+                  {
+                        trappedWater += rightMax - heights[right];
+                  }
+                  right--;
+            }
+      }
 
       return trappedWater;
 }
 
 int main()
 {
+      cout << "Program started" << endl;
+
       int heights[] = {4, 2, 0, 6, 3, 2, 0, 5};
       int n = sizeof(heights) / sizeof(heights[0]);
 
-      int trappedWater = prefixArrayApproach(heights, n);
+      int trappedWater = twoPointersApproach(heights, n);
 
       cout << "The amount of water trapped is: " << trappedWater << endl;
 
