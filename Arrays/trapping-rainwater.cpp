@@ -41,6 +41,7 @@ int bruteForceApproach(int heights[], int n)
       return trappedWater;
 }
 
+// This is The Prefix Array Approach with time complexity O(n) and space complexity O(n)
 int prefixArrayApproach(int heights[], int n)
 {
 
@@ -65,8 +66,20 @@ int prefixArrayApproach(int heights[], int n)
       // Calculate water
       for (int i = 1; i < n - 1; i++)
       {
-            trappedWater += min(leftmax[i], rightmax[i]) - heights[i];
+            int water = min(leftmax[i], rightmax[i]) - heights[i];
+            if (water > 0)
+            {
+                  trappedWater += water;
+            }
       }
+
+      return trappedWater;
+}
+
+//
+int twoPointersApproach(int heights[], int n)
+{
+      int trappedWater = 0;
 
       return trappedWater;
 }
@@ -76,7 +89,7 @@ int main()
       int heights[] = {4, 2, 0, 6, 3, 2, 0, 5};
       int n = sizeof(heights) / sizeof(heights[0]);
 
-      int trappedWater = bruteForceApproach(heights, n);
+      int trappedWater = prefixArrayApproach(heights, n);
 
       cout << "The amount of water trapped is: " << trappedWater << endl;
 
