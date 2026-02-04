@@ -43,21 +43,26 @@ int bruteForceApproach(int heights[], int n)
 
 int prefixArrayApproach(int heights[], int n)
 {
-      int leftmax[n], rightmax[n];
-      leftmax[0] = heights[0];
-      rightmax[n - 1] = heights[n - 1];
+
+      int leftmax[n], rightmax[n];      // Create two arrays:
+      leftmax[0] = heights[0];          // leftMax[i] → maximum height from 0 to i
+      rightmax[n - 1] = heights[n - 1]; // rightMax[i] → maximum height from i to n-1
+
       int trappedWater = 0;
 
+      // Fill leftmax Array
       for (int i = 1; i < n; i++)
       {
             leftmax[i] = max(leftmax[i - 1], heights[i - 1]);
       }
 
+      // Fill rightMax
       for (int i = n - 2; i >= 0; i--)
       {
             rightmax[i] = max(rightmax[i + 1], heights[i + 1]);
       }
 
+      // Calculate water
       for (int i = 1; i < n - 1; i++)
       {
             trappedWater += min(leftmax[i], rightmax[i]) - heights[i];
