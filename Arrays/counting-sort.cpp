@@ -10,20 +10,18 @@ void printArray(int arr[], int n)
       cout << endl;
 }
 
-void CountingSort(int arr[], int n)
+void countingSort(int arr[], int n)
 {
-      for (int i = 0; i < n - 1; i++)
-      {
-            for (int j = 0; j < n - i - 1; j++)
-            {
-                  if (arr[j] > arr[j + 1])
-                  {
-                        swap(arr[j], arr[j + 1]);
-                  }
-            }
-      }
 
-      printArray(arr, n);
+      int freeqArr[100] = {0}; // frequency array
+
+      for (int i = 0; i < n; i++)
+      {
+            freeqArr[arr[i]]++;
+      }
+      for (int i = 0; i < n; i++)
+
+            printArray(arr, n);
 }
 
 int main()
