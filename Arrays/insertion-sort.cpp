@@ -14,16 +14,19 @@ void insertionSort(int arr[], int n)
 {
       for (int i = 1; i < n; i++)
       {
-            int curr = i;
+            int curr = arr[i]; // store value
             int prev = i - 1;
 
             while (prev >= 0 && arr[prev] > curr)
             {
                   arr[prev + 1] = arr[prev];
-
                   prev--;
             }
+
+            // insert at correct place
+            arr[prev + 1] = curr;
       }
+      printArray(arr, n);
 }
 
 int main()
