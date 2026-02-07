@@ -20,8 +20,10 @@ void countingSort(int arr[], int n)
             freeqArr[arr[i]]++;
       }
       for (int i = 0; i < n; i++)
+      {
+      }
 
-            printArray(arr, n);
+      printArray(arr, n);
 }
 
 int main()
