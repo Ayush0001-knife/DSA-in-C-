@@ -1,6 +1,19 @@
 #include <iostream>
 using namespace std;
 
+void printArray(int arr[3][3], int n, int m)
+{
+      cout << "The elements of the 2-D array are: " << endl;
+      for (int i = 0; i < n; i++)
+      {
+            for (int j = 0; j < m; j++)
+            {
+                  cout << arr[i][j] << "  ";
+            }
+            cout << endl;
+      }
+}
+
 void takeInput(int arr[3][3], int n, int m)
 {
       cout << "Enter the elements of the 2-D array: " << endl;
@@ -11,6 +24,8 @@ void takeInput(int arr[3][3], int n, int m)
                   cin >> arr[i][j];
             }
       }
+
+      printArray(arr, n, m);
 }
 
 void printIndexes(int arr[3][3], int n, int m)
