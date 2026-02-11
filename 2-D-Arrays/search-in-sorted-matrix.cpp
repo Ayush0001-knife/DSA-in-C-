@@ -40,6 +40,11 @@ void rowBinarySearch(int arr[3][3], int n, int m, int target)
       }
 }
 
+// Time Complexity: O(n + m)
+void staircaseSearch(int arr[3][3], int n, int m, int target)
+{
+}
+
 int main()
 {
       int arr[3][3] = {{1, 2, 3},
