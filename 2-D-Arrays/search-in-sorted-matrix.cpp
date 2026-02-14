@@ -80,6 +80,8 @@ int main()
       cout << "Enter the target element: ";
       cin >> target;
 
+      // bruteForceApproach(arr, n, m, target);
+      // rowBinarySearch(arr, n, m, target);
       staircaseSearch(arr, n, m, target);
 
       return 0;
