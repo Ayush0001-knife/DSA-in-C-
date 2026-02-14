@@ -43,6 +43,30 @@ void rowBinarySearch(int arr[3][3], int n, int m, int target)
 // Time Complexity: O(n + m)
 void staircaseSearch(int arr[3][3], int n, int m, int target)
 {
+      int r = 0, c = m - 1;
+      bool found = false;
+
+      while (r < n && c >= 0)
+      {
+            if (arr[r][c] == target)
+            {
+                  cout << "Element found at index: (" << r << "," << c << ")" << endl;
+                  found = true;
+                  break;
+            }
+            else if (arr[r][c] > target)
+            {
+                  c--;
+            }
+            else
+            {
+                  r++;
+            }
+      }
+      if (!found)
+      {
+            cout << "Element not found" << endl;
+      }
 }
 
 int main()
@@ -56,7 +80,7 @@ int main()
       cout << "Enter the target element: ";
       cin >> target;
 
-      bruteForceApproach(arr, n, m, target);
+      staircaseSearch(arr, n, m, target);
 
       return 0;
 }
