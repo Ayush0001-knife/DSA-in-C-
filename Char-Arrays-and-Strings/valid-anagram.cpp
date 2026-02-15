@@ -12,6 +12,30 @@ void sortingAndComparing(string str1, string str2)
             cout << "The strings are not anagrams." << endl;
 }
 
+void linearApproach(string str1, string str2)
+{
+      if (str1.length() != str2.length())
+      {
+            cout << "The strings are not anagram." << endl;
+      }
+      else
+      {
+            int count[26] = {0};
+            for (int i = 0; i < str1.length(); i++)
+            {
+                  count[str1[i] - 'a']++;
+            }
+            for (int i = 0; i < str2.length(); i++)
+            {
+                  if (count[str1[i] - 'a'] == 0)
+                  {
+                        cout << "The strings are not anagram." << endl;
+                  }
+                  count[str1[i] - 'a']--;
+            }
+      }
+}
+
 int main()
 {
       string str1 = "anagram";
