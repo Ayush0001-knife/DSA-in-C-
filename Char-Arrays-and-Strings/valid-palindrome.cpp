@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstring>
+#include <cctype>
 using namespace std;
 
 int main()
@@ -7,35 +9,29 @@ int main()
       int n = strlen(word);
       int index = 0;
 
+      // Remove non-alphanumeric
       for (int i = 0; i < n; i++)
       {
             if (isalnum(word[i]))
             {
-                  word[index++] = word[i];
+                  word[index++] = tolower(word[i]); // convert to lowercase here
             }
       }
+
       word[index] = '\0';
+      n = index;
 
-      for (int i = 0; i < n; i++)
-      {
-            if (word[i] >= 'A' && word[i] <= 'Z')
-            {
-                  int pos = word[i] - 'A';
-                  word[i] = pos + 'a';
-            }
-      }
-
-      int str = 0, end = n - 1;
+      int start = 0, end = n - 1;
       bool isPalindrome = true;
 
-      while (str < end)
+      while (start < end)
       {
-            if (word[str] != word[end])
+            if (word[start] != word[end])
             {
                   isPalindrome = false;
                   break;
             }
-            str++;
+            start++;
             end--;
       }
 
