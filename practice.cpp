@@ -1,7 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int main()
+int *func()
+{
+      int *ptr = new int;
+      *ptr = 1200;
+
+      cout << "ptr points to : " << *ptr << endl;
+      return ptr;
+}
+
+void funcInt()
+{
+      int *ptr = new int;
+      *ptr = 5;
+
+      cout << *ptr;
+
+      delete ptr;
+}
+
+void funcArr()
 {
       int size;
       cin >> size;
@@ -16,6 +35,15 @@ int main()
             x++;
       }
       cout << endl;
+
+      delete[] arr;
+}
+
+int main()
+{
+
+      int *x = func();
+      cout << *x << endl;
 
       return 0;
 }
