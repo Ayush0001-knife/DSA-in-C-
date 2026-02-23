@@ -1,49 +1,16 @@
 #include <iostream>
+#include <vector>
 using namespace std;
-
-int *func()
-{
-      int *ptr = new int;
-      *ptr = 1200;
-
-      cout << "ptr points to : " << *ptr << endl;
-      return ptr;
-}
-
-void funcInt()
-{
-      int *ptr = new int;
-      *ptr = 5;
-
-      cout << *ptr;
-
-      delete ptr;
-}
-
-void funcArr()
-{
-      int size;
-      cin >> size;
-
-      int *arr = new int[size];
-
-      int x = 1;
-      for (int i = 0; i < size; i++)
-      {
-            arr[i] = x;
-            cout << arr[i] << " ";
-            x++;
-      }
-      cout << endl;
-
-      delete[] arr;
-}
 
 int main()
 {
+      vector<int> vec1(5, -1);
+      cout << vec1.size() << endl;
 
-      int *x = func();
-      cout << *x << endl;
+      for (int i = 0; i < vec1.size(); i++)
+      {
+            cout << vec1[i] << " ";
+      }
 
       return 0;
 }
