@@ -12,5 +12,9 @@ int main()
       cout << "Size: " << vec.size() << endl;
       cout << "Capacity: " << vec.capacity() << endl;
 
+      vec.pop_back();
+      cout << "Size: " << vec.size() << endl;
+      cout << "Capacity: " << vec.capacity() << endl;
+
       return 0;
 }
