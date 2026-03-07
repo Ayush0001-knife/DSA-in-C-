@@ -12,5 +12,8 @@ int main()
       // Bitwise OR ("|")
       cout << "a | b = " << (a | b) << endl; // Output: 7 (binary: 0011 | 0101 =  0111)
 
-            return 0;
+      // Bitwise XOR ("^")
+      cout << "a ^ b = " << (a ^ b) << endl; // Output: 6 (binary: 0011 ^ 0101 =  0110)
+
+      return 0;
 }
