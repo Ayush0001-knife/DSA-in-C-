@@ -9,5 +9,8 @@ int main()
       // Bitwise AND ("&")
       cout << "a & b = " << (a & b) << endl; // Output: 1 (binary: 0011 & 0101 = 0000 0001)
 
-      return 0;
+      // Bitwise OR ("|")
+      cout << "a | b = " << (a | b) << endl; // Output: 7 (binary: 0011 | 0101 =  0111)
+
+            return 0;
 }
