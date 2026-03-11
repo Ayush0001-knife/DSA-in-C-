@@ -13,7 +13,7 @@ int main()
 
       int bitMask = (1 << i); // Create a bitmask with the i-th bit set to 1
 
-      if (n & bitMask) // Check if the i-th bit is set in n
+      if (n | bitMask) // Check if the i-th bit is set in n
       {
             cout << "The " << i << "-th bit of " << n << " is 1." << endl;
       }
