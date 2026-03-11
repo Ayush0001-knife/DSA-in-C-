@@ -11,9 +11,9 @@ int main()
       cout << "Enter the position of the bit to check (0-based index): ";
       cin >> i;
 
-      int bitMask = (1 << i);
+      int bitMask = ~(1 << i);
 
-      int new_num = n | bitMask;
+      int new_num = n & bitMask;
       cout << "New Num : " << new_num;
 
       return 0;
