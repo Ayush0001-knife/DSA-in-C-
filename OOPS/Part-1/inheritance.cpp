@@ -61,11 +61,11 @@ int main()
 
       Bear b1;
       b1.sleep();
-      b1.eat(); // It will give error
+      // b1.eat(); // It will give error
 
       Bird B2;
       B2.Flying();
-      B2.eat(); // It will give error
+      // B2.eat(); // It will give error
 
       return 0;
 }
