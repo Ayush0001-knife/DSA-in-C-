@@ -15,8 +15,7 @@ int clearBit(int n, int i)
 
 int singleFunctionApproach(int n, int i, int value)
 {
-      int bitMask = ~(1 << i);
-      int newNum = n & bitMask;
+      int newNum = n & ~(1 << i); // To clear the ith bit
 
       int ans = newNum | (value << i);
       return ans;
