@@ -13,6 +13,15 @@ int clearBit(int n, int i)
       return n & bitMask;
 }
 
+int singleFunctionApproach(int n, int i, int value)
+{
+      int bitMask = ~(1 << i);
+      int newNum = n & bitMask;
+
+      int ans = newNum | (value << i);
+      return ans;
+}
+
 int main()
 {
       int num = 7;
@@ -24,10 +33,15 @@ int main()
       cout << "Enter the value (0 or 1): ";
       cin >> value;
 
-      if (value == 0)
-            cout << clearBit(num, i);
-      else if (value == 1)
-            cout << setBit(num, i);
+      // if (value == 0)               // For the Two Function Approach
+      //       cout << clearBit(num, i);
+      // else if (value == 1)
+      //       cout << setBit(num, i);
+      // else
+      //       cout << "Invalid value";
+
+      if (value == 0 | value == 1) // For the
+            cout << singleFunctionApproach(num, i, value);
       else
             cout << "Invalid value";
 
