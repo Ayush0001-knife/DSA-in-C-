@@ -17,7 +17,7 @@ int main()
             n = n >> 1;
       }
 
-      cout << "Count is : " << count;
+      cout << "Count of set bit is : " << count;
 
       return 0;
 }
