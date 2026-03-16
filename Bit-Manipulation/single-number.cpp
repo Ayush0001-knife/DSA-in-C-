@@ -27,12 +27,24 @@ void notOptimalApproach(int nums[], int n)
       }
 }
 
+void optimalApproach(int nums[], int n)
+{
+      int ans = 0;
+      for (int i = 0; i < n; i++)
+      {
+            ans ^= nums[i];
+      }
+
+      cout << "Single element is: " << ans << endl;
+}
+
 int main()
 {
       int nums[] = {2, 2, 1};
       int n = sizeof(nums) / sizeof(int);
 
-      notOptimalApproach(nums, n); // ✅ fixed
+      notOptimalApproach(nums, n);
+      optimalApproach(nums, n);
 
       return 0;
 }
