@@ -7,11 +7,15 @@ class Car
       string color;
 
 public:
-      Car(string nameVal, string colorVal) // Constructor created by me
+      Car() // Non Parameterized Constructor
       {
-            name = nameVal;
-            color = colorVal;
-      };
+            cout << "Constructor without parameters." << endl;
+      }
+      Car(string name, string color) // Parameterized Constructor
+      {
+            this->name = name;   // name = nameVal;
+            this->color = color; // color = colorVal;
+      }
       void Start()
       {
             cout << name << " Car Started!!" << endl;
@@ -28,7 +32,8 @@ public:
 
 int main()
 {
-      Car c1("Fortuner", "Black");
+      Car c0;                      // It will Call Non Parameterized Constructor
+      Car c1("Fortuner", "Black"); // It will Call Parameterized Constructor
       c1.getDetails();
 
       return 0;
