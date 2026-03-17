@@ -12,6 +12,12 @@ public:
             this->name = name;
             this->color = color;
       }
+      Car(Car &original)
+      {
+            cout << "Copying .... \n";
+            name = original.name;
+            color = original.color;
+      }
 };
 
 int main()
