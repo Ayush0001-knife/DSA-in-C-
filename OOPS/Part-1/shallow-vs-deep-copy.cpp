@@ -50,4 +50,4 @@ int main()
       cout << *c1.mileage;
 
       return 0;
-}
+};
