@@ -24,19 +24,48 @@ public:
 
       void swim()
       {
+            eat();
+            breathe();
             cout << "Swiming" << endl;
+      }
+};
+
+class Bear : protected Animal
+{
+public:
+      int claws;
+
+      void sleep()
+      {
+            cout << "Sleeping" << endl;
+      }
+};
+
+class Bird : private Animal
+{
+public:
+      int feathers;
+
+      void Flying()
+      {
+            cout << "Flying" << endl;
       }
 };
 
 int main()
 {
-      Animal a1;
-      a1.breathe();
-      a1.eat();
-
       Fish f1;
-      f1.color = "silver";
       f1.eat();
+      f1.breathe();
+      f1.swim();
+
+      Bear b1;
+      b1.sleep();
+      b1.eat(); // It will give error
+
+      Bird B2;
+      B2.Flying();
+      B2.eat(); // It will give error
 
       return 0;
 }
