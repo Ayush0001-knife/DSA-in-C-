@@ -14,6 +14,26 @@ class Student // Class
       }
 };
 
+class User
+{
+      int id;
+      string userName;
+      string password;
+      string bio;
+
+      void deactivate()
+      {
+            cout << "User Deactivated!!";
+      }
+
+      string editBio(string newBio)
+      {
+            bio = newBio;
+
+            return bio;
+      }
+};
+
 int main()
 {
       Student s1; //  Object
