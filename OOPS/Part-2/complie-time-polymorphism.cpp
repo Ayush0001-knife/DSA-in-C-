@@ -45,6 +45,17 @@ public:
             cout << "Result: ";
             c3.showNum();
       }
+      void operator-(Complex &c2)
+      {
+            int resReal = this->real - c2.real;
+            int resImag = this->imag - c2.imag;
+            // cout << "Result: " << resReal << " + " << resImag << "i" << endl;
+            // cout << endl;
+
+            Complex c3(resReal, resImag);
+            cout << "Result: ";
+            c3.showNum();
+      }
 };
 
 int main()
@@ -61,6 +72,7 @@ int main()
       c1.showNum();
       c2.showNum();
       c1 + c2;
+      c1 - c2;
 
       return 0;
 }
