@@ -4,7 +4,7 @@ using namespace std;
 class Shape
 {
 public:
-      virtual void draw() // Pure Virtual Function
+      virtual void draw() // Pure Virtual Function    virtual functionName() = 0;
       {
             throw 0;
       };
