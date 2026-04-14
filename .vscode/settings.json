@@ -56,6 +56,7 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "__node_handle": "cpp",
-    "version": "cpp"
+    "version": "cpp",
+    "compare": "cpp"
   }
 }
