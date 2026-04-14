@@ -44,5 +44,8 @@ int main()
       Triangle Obj3;
       Obj3.draw();
 
+      // Shape s1;
+      // s1.draw(); // It will give error
+
       return 0;
 }
