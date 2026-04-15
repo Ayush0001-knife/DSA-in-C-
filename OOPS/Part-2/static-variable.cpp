@@ -28,21 +28,36 @@ public:
 };
 int Example2::x = 0;
 
+class Example3
+{
+public:
+      Example3()
+      {
+            cout << "Constructor called ...... " << endl;
+      }
+      ~Example3()
+      {
+            cout << "Destructor called ...... " << endl;
+      }
+};
+
 int main()
 {
-
+      // Normal Function
       counter1();
       counter1();
       counter1();
 
       cout << endl;
 
+      // Static Variable Function
       counter2();
       counter2();
       counter2();
 
       cout << endl;
 
+      // Normal Class
       Example1 Obj1;
       Example1 Obj2;
       Example1 Obj3;
@@ -53,6 +68,7 @@ int main()
 
       cout << endl;
 
+      // Static Variable Class
       Example2 Obj4;
       Example2 Obj5;
       Example2 Obj6;
@@ -62,6 +78,23 @@ int main()
       cout << Obj4.x++ << endl;
       cout << Obj5.x++ << endl;
       cout << Obj6.x++ << endl;
+
+      // Static Object Class
+      int a = 0;
+
+      if (a == 0)
+      {
+            Example3 obj1;
+      }
+
+      cout << endl;
+
+      if (a == 0)
+      {
+            static Example3 obj2;
+      }
+
+      cout << "End of the Code " << endl;
 
       return 0;
 }
