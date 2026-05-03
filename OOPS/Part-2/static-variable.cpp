@@ -15,11 +15,21 @@ void counter2() // Here in only first call count variable will be created, incre
       cout << "Count: " << count << endl;
 }
 
+class Example1
+{
+public:
+      int x = 0;
+};
+
 int main()
 {
-      counter2();
-      counter2();
-      counter2();
+      Example1 Obj1;
+      Example1 Obj2;
+      Example1 Obj3;
+
+      cout << Obj1.x++ << endl;
+      cout << Obj2.x++ << endl;
+      cout << Obj3.x++ << endl;
 
       return 0;
 }
