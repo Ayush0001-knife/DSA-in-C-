@@ -88,7 +88,6 @@ int main()
       std::vector<vector<char>> board(n, std::vector<char>(n, '.'));
 
       int count = nQueens(board, 0); // To track total No of possible solutions
-
       cout << "Count : " << count << endl;
 
       return 0;
