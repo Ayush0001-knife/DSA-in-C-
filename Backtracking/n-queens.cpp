@@ -48,6 +48,16 @@ bool isSafe(vector<vector<char>> board, int rowNumber, int j)
                   return false;
             }
       }
+      // diagonal-right
+      for (int i = rowNumber, k = j; i >= 0 && k <= n; i--, k++)
+      {
+            if (board[i][k] == 'Q')
+            {
+                  return false;
+            }
+      }
+
+      return true;
 }
 
 void nQueens(vector<vector<char>> board, int rowNumber)
@@ -73,7 +83,7 @@ void nQueens(vector<vector<char>> board, int rowNumber)
 
 int main()
 {
-      int n = 2;
+      int n = 4;
       std::vector<vector<char>> board(n, std::vector<char>(n, '.'));
 
       nQueens(board, 0);
