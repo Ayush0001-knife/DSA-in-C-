@@ -13,6 +13,15 @@ public:
             data = val;
             next = NULL;
       }
+
+      ~Node()
+      {
+            if (next != NULL)
+            {
+                  delete next;
+                  next = NULL;
+            }
+      }
 };
 
 // collection of nodes
@@ -26,6 +35,15 @@ public:
       {
             head = NULL;
             tail = NULL;
+      }
+
+      ~List()
+      {
+            if (head != NULL)
+            {
+                  delete head;
+                  head = NULL;
+            }
       }
 
       void push_front(int val)
