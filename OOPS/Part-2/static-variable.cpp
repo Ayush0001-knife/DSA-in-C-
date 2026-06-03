@@ -21,6 +21,14 @@ public:
       int x = 0;
 };
 
+// class Example2
+// {
+// public:
+//       static int x;
+// };
+
+// int Example2::x = 0;
+
 int main()
 {
       Example1 Obj1;
@@ -30,6 +38,14 @@ int main()
       cout << Obj1.x++ << endl;
       cout << Obj2.x++ << endl;
       cout << Obj3.x++ << endl;
+
+      // Example1 Obj4;
+      // Example1 Obj5;
+      // Example1 Obj6;
+
+      // cout << Obj4.x++ << endl;
+      // cout << Obj5.x++ << endl;
+      // cout << Obj6.x++ << endl;
 
       // counter1();
       // counter1();
