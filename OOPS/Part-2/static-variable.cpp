@@ -31,5 +31,13 @@ int main()
       cout << Obj2.x++ << endl;
       cout << Obj3.x++ << endl;
 
+      // counter1();
+      // counter1();
+      // counter1();
+
+      // counter2();
+      // counter2();
+      // counter2();
+
       return 0;
 }
