@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+// Create a class BankAccount with private attributes accountNumber and
+// balance. Implement public methods deposit(), withdraw(), and getBalance() to
+// manage the account.
+
 class BankAccount
 {
       int accountNumber;
