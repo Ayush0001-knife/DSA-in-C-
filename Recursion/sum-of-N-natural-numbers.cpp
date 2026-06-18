@@ -1,18 +1,13 @@
 #include <iostream>
 using namespace std;
 
-void printSum(int n)
+int printSum(int n)
 {
-      int sum = 0;
-      if (n == 1)
+      if (n == 0)
       {
-
-            sum += n;
-            cout << Sum << " ";
-            return;
+            return 0;
       }
-      cout << n << " ";
-      printSum(n - 1);
+      return n + printSum(n - 1);
 }
 
 int main()
@@ -20,7 +15,7 @@ int main()
       int n;
       cout << "Enter a number: ";
       cin >> n;
-      printSum(n);
+      cout << "Sum of first " << n << " natural numbers is: " << printSum(n) << endl;
 
       return 0;
 }
