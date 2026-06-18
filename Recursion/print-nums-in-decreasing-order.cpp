@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-int printDecreasing(int n)
+void printDecreasing(int n)
 {
       if (n == 1)
       {
             cout << n << " ";
-            return 1;
+            return;
       }
       cout << n << " ";
-      return printDecreasing(n - 1);
+      printDecreasing(n - 1);
 }
 
 int main()
