@@ -8,8 +8,9 @@ void printDecreasing(int n)
             cout << n << " ";
             return;
       }
+      // printDecreasing(n - 1);   // In Increasing order, we will print after the recursive call
       cout << n << " ";
-      printDecreasing(n - 1);
+      printDecreasing(n - 1); // In Decreasing order, we will print before the recursive call
 }
 
 int main()
