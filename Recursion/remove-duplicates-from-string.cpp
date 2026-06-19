@@ -46,7 +46,8 @@ int main()
       string str = "appnnacollege";
       string newStr = "";
 
-      removeDuplicates(str, newStr, str.length() - 1);
+      removeDuplicates(str, 0, str.length(), newStr);
+      // removeDuplicates(str, newStr, str.length() - 1);
 
       return 0;
 }
