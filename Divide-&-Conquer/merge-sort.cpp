@@ -2,21 +2,41 @@
 #include <vector>
 using namespace std;
 
-void merge(int arr[], int n, int st, int end, int mid) // O(n)
+// Pass true for ascending, false for descending
+void merge(int arr[], int st, int mid, int end, bool ascending)
 {
       vector<int> temp;
-      int i = st, j = mid + 1;
+
+      int i = st;
+      int j = mid + 1;
+
       while (i <= mid && j <= end)
       {
-            if (arr[i] < arr[j])
+            if (ascending)
             {
-                  temp.push_back(arr[i]);
-                  i++;
+                  if (arr[i] <= arr[j])
+                  {
+                        temp.push_back(arr[i]);
+                        i++;
+                  }
+                  else
+                  {
+                        temp.push_back(arr[j]);
+                        j++;
+                  }
             }
             else
             {
-                  temp.push_back(arr[j]);
-                  j++;
+                  if (arr[i] >= arr[j])
+                  {
+                        temp.push_back(arr[i]);
+                        i++;
+                  }
+                  else
+                  {
+                        temp.push_back(arr[j]);
+                        j++;
+                  }
             }
       }
 
@@ -25,28 +45,30 @@ void merge(int arr[], int n, int st, int end, int mid) // O(n)
             temp.push_back(arr[i]);
             i++;
       }
+
       while (j <= end)
       {
             temp.push_back(arr[j]);
             j++;
       }
 
-      for (int i = st; i <= end; i++)
+      for (int k = st; k <= end; k++)
       {
-            arr[i] = temp[i - st];
+            arr[k] = temp[k - st];
       }
 }
 
-void mergeSort(int arr[], int n, int st, int end) // O(nlogn)
+void mergeSort(int arr[], int st, int end, bool ascending)
 {
       if (st >= end)
             return;
 
       int mid = st + (end - st) / 2;
-      mergeSort(arr, n, st, mid);
-      mergeSort(arr, n, mid + 1, end);
 
-      merge(arr, n, st, end, mid);
+      mergeSort(arr, st, mid, ascending);
+      mergeSort(arr, mid + 1, end, ascending);
+
+      merge(arr, st, mid, end, ascending);
 }
 
 int main()
@@ -54,11 +76,20 @@ int main()
       int arr[] = {6, 3, 7, 5, 2, 4};
       int n = sizeof(arr) / sizeof(arr[0]);
 
-      mergeSort(arr, n, 0, n - 1);
+      // true  -> Ascending
+      // false -> Descending
+      bool ascending = true;
 
-      cout << "Sorted array: ";
+      mergeSort(arr, 0, n - 1, ascending);
+
+      if (ascending)
+            cout << "Ascending Order: ";
+      else
+            cout << "Descending Order: ";
+
       for (int i = 0; i < n; i++)
             cout << arr[i] << " ";
+
       cout << endl;
 
       return 0;
