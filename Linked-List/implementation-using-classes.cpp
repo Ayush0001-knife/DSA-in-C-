@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+
+// By using this class we can create many Nodes but we want to create collection of Nodes which is called Linked List.
+class Node
+{
+public:
+      int data;   // Data part of a node
+      Node *next; // Address part of a node
+
+      Node(int val) // To create a node we will recieve a value
+      {
+            data = val;
+            next = NULL;
+      }
+};
+
+// collection of nodes
+class List
+{
+      Node *head; // It will point towards the first node
+      Node *tail; // It will point towards the last node
+
+public:
+      List()
+      {
+            head = NULL;
+            tail = NULL;
+      }
+
+      void push_front(int val)
+      {
+            Node *newNode = new Node(val); // dynamic memory allocation
+            // Node *newNode(val);            // static memory allocation (We do not use this because when exiting this function the newNode will be deleted)
+
+            if (head == NULL)
+            {
+                  head = tail = newNode;
+            }
+            else
+            {
+                  newNode->next = head;
+                  head = newNode;
+            }
+      }
+
+      void push_back(int val)
+      {
+            Node *newNode = new Node(val);
+
+            if (head == NULL)
+            {
+                  head = tail = newNode;
+            }
+            else
+            {
+                  tail->next = newNode;
+                  tail = newNode;
+            }
+      }
+
+      void print_list()
+      {
+            Node *temp = head;
+            while (temp != NULL)
+            {
+                  cout << temp->data << " -> ";
+                  temp = temp->next;
+            }
+      }
+};
+
+int main()
+{
+      List l1;
+
+      l1.push_front(10);
+      l1.push_front(20);
+      l1.push_front(30);
+      // 10->20->30
+      l1.print_list();
+
+      return 0;
+}
