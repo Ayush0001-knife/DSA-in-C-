@@ -102,8 +102,9 @@ public:
             temp->next = newNode;
         }
     }
+};
 
-    int main()
-    {
-        return 0;
-    }
+int main()
+{
+    return 0;
+}
