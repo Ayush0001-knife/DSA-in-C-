@@ -109,6 +109,22 @@ public:
             newNode->next = temp->next;
             temp->next = newNode;
       }
+
+      void popFront()
+      {
+            if (head == NULL)
+            {
+                  cout << "List is empty";
+                  return;
+            }
+            else
+            {
+                  Node *temp = head;
+                  head = head->next;
+                  temp->next = NULL;
+                  delete temp;
+            }
+      }
 };
 
 int main()
