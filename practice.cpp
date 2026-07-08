@@ -1,38 +1,33 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-class Complex
+void printDecreasing(int n)
 {
-    int real, imag;
+    if (n == 1)
+    {
+        cout << n << " ";
+        return;
+    }
+    cout << n << " ";
+    printDecreasing(n - 1);
+}
 
-public:
-    Complex(int r, int i)
+void printIncreasing(int n, int count)
+{
+    if (count == n)
     {
-        real = r;
-        imag = i;
+        cout << count << " ";
+        return;
     }
-    void showNum()
-    {
-        cout << real << " + " << imag << "i" << endl;
-    }
-    void operator-(Complex &c2)
-    {
-        int resReal = this->real - c2.real;
-        int resImag = this->imag - c2.imag;
-
-        Complex c3(resReal, resImag);
-        cout << "Result: ";
-        c3.showNum();
-    }
-};
+    cout << count << " ";
+    printIncreasing(n, count + 1);
+}
 
 int main()
 {
-    Complex c1(10, 20);
-    Complex c2(30, 40);
-
-    c1 - c2;
+    int n = 10;
+    // printDecreasing(n);
+    printIncreasing(n, 1);
 
     return 0;
 }
