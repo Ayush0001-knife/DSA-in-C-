@@ -177,7 +177,7 @@ public:
             SearchRec(temp->next, key, count);
       }
 
-      void reverseLL(Node *head, Node *tail)
+      void reverseLL()
       {
             Node *curr = head;
             Node *prev = NULL;
