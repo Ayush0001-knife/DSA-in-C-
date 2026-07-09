@@ -176,6 +176,21 @@ public:
             count += 1;
             SearchRec(temp->next, key, count);
       }
+
+      void reverseLL(Node *head, Node *tail)
+      {
+            Node *curr = head;
+            Node *prev = NULL;
+
+            while (curr != NULL)
+            {
+                  Node *next = curr->next;
+                  curr->next = prev;
+                  prev = curr;
+                  curr = next;
+            }
+            head = prev;
+      }
 };
 
 int main()
