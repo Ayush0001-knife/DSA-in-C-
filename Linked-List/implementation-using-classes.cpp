@@ -191,6 +191,24 @@ public:
             }
             head = prev;
       }
+
+      void removeNthNode(int n)
+      {
+            int count = 0;
+            Node *current = head;
+
+            while (current != NULL)
+            {
+                  count++;
+                  current = current->next; // Move to the next node
+            }
+            Node *prev = head;
+            for (int i = 1; i < (count - n); i++)
+            {
+                  prev = prev->next;
+            }
+            prev->next = prev->next->next;
+      }
 };
 
 int main()
