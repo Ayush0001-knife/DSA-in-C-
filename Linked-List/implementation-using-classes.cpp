@@ -125,6 +125,57 @@ public:
                   delete temp;
             }
       }
+
+      void popback()
+      {
+            if (head == NULL)
+            {
+                  cout << "List is empty";
+                  return;
+            }
+            else
+            {
+                  Node *temp = head;
+                  while (temp->next != tail)
+                  {
+                        temp = temp->next;
+                  }
+                  temp->next = NULL;
+                  delete tail;
+                  tail = temp;
+            }
+      }
+
+      void searchItr(int key)
+      {
+            Node *temp = head;
+            int count = 0;
+            while (temp != NULL)
+            {
+                  if (temp->data == key)
+                  {
+                        cout << "Index : " << count << endl;
+                        return;
+                  }
+                  temp = temp->next;
+                  count += 1;
+            }
+      }
+
+      void SearchRec(Node *temp, int key, int count)
+      {
+            if (temp == NULL)
+            {
+                  return;
+            }
+            if (temp->data == key)
+            {
+                  cout << "Index : " << count << endl;
+                  return;
+            }
+            count += 1;
+            SearchRec(temp->next, key, count);
+      }
 };
 
 int main()
