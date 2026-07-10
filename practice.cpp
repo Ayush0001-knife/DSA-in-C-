@@ -1,18 +1,22 @@
 #include <iostream>
 using namespace std;
 
-int sum(int n)
+int printFibonacci(int n)
 {
     if (n == 0)
     {
         return 0;
     }
-    return n + sum(n - 1);
+    if (n == 1)
+    {
+        return 1;
+    }
+    return printFibonacci(n - 1) + printFibonacci(n - 2);
 }
 
 int main()
 {
-    cout << sum(5);
+    cout << printFibonacci(5);
 
     return 0;
 }
