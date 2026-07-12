@@ -1,13 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-      return 0;
-}
-#include <iostream>
-using namespace std;
-
 // By using this class we can create many Nodes but we want to create collection of Nodes which is called Linked List.
 class Node
 {
@@ -102,7 +95,7 @@ bool isCycle(Node *head)
       Node *slow = head;
       Node *fast = head;
 
-      while (fast != NULL && fast->next == NULL)
+      while (fast != NULL && fast->next != NULL)
       {
             slow = slow->next;
             fast = fast->next->next;
@@ -125,7 +118,8 @@ int main()
       ll.push_front(4);
       ll.push_front(3);
       ll.push_front(2);
-      ll.push_front(1); // List: 1 -> 2 -> 3 -> 4 -> NULL
+      ll.push_front(1);        // List: 1 -> 2 -> 3 -> 4 -> NULL
+      ll.tail->next = ll.head; // Creating a loop for testing  List: 1 -> 2 -> 3 -> 4 -> 1 -> 2 -> 3 -> 4 -> ...
 
       isCycle(ll.head);
 
