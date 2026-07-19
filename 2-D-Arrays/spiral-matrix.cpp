@@ -3,11 +3,9 @@ using namespace std;
 
 int main()
 {
-      int arr[3][3] = {{85, 86, 87},
-                       {75, 76, 77},
-                       {65, 66, 67}};
+      int arr[3][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
 
-      int n = 3, m = 3;
+      int n = 3, m = 4;
 
       int strRow = 0, endRow = n - 1, strCol = 0, endCol = m - 1;
 
