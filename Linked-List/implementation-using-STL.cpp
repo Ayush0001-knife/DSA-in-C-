@@ -10,5 +10,8 @@ int main()
       myLL.push_back(2);
       myLL.push_back(3);
 
+      cout << "Size of the linked list: " << myLL.size() << endl;
+      cout << "Front: " << myLL.front() << ", Back: " << myLL.back() << endl;
+
       return 0;
 }
