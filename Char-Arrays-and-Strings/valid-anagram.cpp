@@ -38,10 +38,10 @@ void linearApproach(string str1, string str2)
 
 int main()
 {
-      string str1 = "anagram";
-      string str2 = "nagaram";
+      string str1 = "aacc";
+      string str2 = "ccac";
 
-      sortingAndComparing(str1, str2);
+      linearApproach(str1, str2);
 
       return 0;
 }
