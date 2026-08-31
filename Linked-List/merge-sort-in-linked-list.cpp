@@ -109,6 +109,8 @@ Node *splitAtMid(Node *head)
       return slow; // slow = rightHead
 }
 
+void merge(Node *head, Node *rightHead) {}
+
 void MergeSort(Node *head)
 {
 
