@@ -89,6 +89,26 @@ void print_list(Node *head)
       cout << "NULL" << endl;
 }
 
+Node *splitAtMid(Node *head)
+{
+      Node *slow = head;
+      Node *fast = head;
+      Node *prev = NULL;
+
+      while (fast != NULL || fast->next != NULL)
+      {
+            prev = slow;
+            slow = slow->next;
+            fast = fast->next->next;
+      }
+
+      if (prev != NULL)
+      {
+            prev->next = NULL; // split at Middle
+      }
+      return slow; // slow = rightHead
+}
+
 void MergeSort(Node *head)
 {
 
