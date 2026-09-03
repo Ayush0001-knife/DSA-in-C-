@@ -61,6 +61,22 @@ public:
             }
       }
 
+      void push_back(int val)
+      {
+            Node *newNode = new Node(val); // dynamic memory allocation
+            // Node *newNode(val);            // static memory allocation (We do not use this because when exiting this function the newNode will be deleted)
+
+            if (head == NULL)
+            {
+                  head = tail = newNode;
+            }
+            else
+            {
+                  tail->next = newNode;
+                  tail = newNode;
+            }
+      }
+
       void popFront()
       {
             if (head == NULL)
@@ -109,22 +125,55 @@ Node *splitAtMid(Node *head)
       return slow; // slow = rightHead
 }
 
-void merge(Node *head, Node *rightHead) {}
+Node *merge(Node *leftHead, Node *rightHead)
+{
+      List Ans;
 
-void MergeSort(Node *head)
+      Node *i = leftHead;
+      Node *j = rightHead;
+
+      while (i != NULL && j != NULL)
+      {
+            if (i->data < j->data)
+            {
+                  Ans.push_back(i->data);
+                  i = i->next;
+            }
+            else
+            {
+                  Ans.push_back(j->data);
+                  j = j->next;
+            }
+      }
+
+      while (i != NULL)
+      {
+            Ans.push_back(i->data);
+            i = i->next;
+      }
+      while (j != NULL)
+      {
+            Ans.push_back(j->data);
+            j = j->next;
+      }
+
+      return Ans.head;
+}
+
+Node *MergeSort(Node *head)
 {
 
       if (head == NULL || head->next == NULL)
       {
-            return;
+            return head;
       }
 
       Node *rightHead = splitAtMid(head);
 
-      MergeSort(head);      // left halve
-      MergeSort(rightHead); // right halve
+      Node *leftHead = MergeSort(head);             // left halve
+      Node *rightHeadSorted = MergeSort(rightHead); // right halve
 
-      merge(head, rightHead);
+      return merge(leftHead, rightHeadSorted);
 }
 
 int main()
