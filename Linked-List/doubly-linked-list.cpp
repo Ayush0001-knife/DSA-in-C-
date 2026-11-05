@@ -51,6 +51,23 @@ public:
                   head = newNode;
             }
       }
+
+      void pop_front(int val)
+      {
+            if (head == NULL)
+            {
+                  cout << "List is empty" << endl;
+                  return;
+            }
+            else
+            {
+                  Node *temp = head;
+                  head = head->next;
+                  head->prev = NULL;
+                  temp->next = NULL;
+                  delete temp;
+            }
+      }
 };
 
 void print_list(Node *head)
