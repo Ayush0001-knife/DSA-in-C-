@@ -110,20 +110,17 @@ Node *splitAtMid(Node *head)
 {
       Node *slow = head;
       Node *fast = head;
-      Node *prev = NULL;
 
-      while (fast != NULL && fast->next != NULL)
+      while (fast->next != NULL && fast->next->next != NULL)
       {
-            fast = fast->next->next;
-            prev = slow;
             slow = slow->next;
+            fast = fast->next->next;
       }
 
-      if (prev != NULL)
-      {
-            prev->next = NULL;
-      }
-      return slow;
+      Node *rightHead = slow->next;
+      slow->next = NULL;
+
+      return rightHead;
 }
 
 Node *reverseLL(Node *rightHead)
@@ -142,33 +139,52 @@ Node *reverseLL(Node *rightHead)
       return prev;
 }
 
-Node *zigZag(Node *head)
+// Node *zigZag(Node *head)
+// {
+//       Node *rightHead = splitAtMid(head);
+
+//       Node *finalRightHead = reverseLL(rightHead);
+
+//       List ans;
+
+//       Node *ptr1 = head;
+//       Node *ptr2 = finalRightHead;
+
+//       while (ptr1 != NULL || ptr2 != NULL)
+//       {
+//             if (ptr1 != NULL)
+//             {
+//                   ans.push_back(ptr1->data);
+//                   ptr1 = ptr1->next;
+//             }
+//             if (ptr2 != NULL)
+//             {
+//                   ans.push_back(ptr2->data);
+//                   ptr2 = ptr2->next;
+//             }
+//       }
+
+//       print_list(ans.head);
+//       return ans.head;
+// }
+
+void zigZag(Node *head)
 {
       Node *rightHead = splitAtMid(head);
-
-      Node *finalRightHead = reverseLL(rightHead);
-
-      List ans;
-
       Node *ptr1 = head;
-      Node *ptr2 = finalRightHead;
+      Node *ptr2 = reverseLL(rightHead);
 
-      while (ptr1 != NULL || ptr2 != NULL)
+      while (ptr2 != NULL)
       {
-            if (ptr1 != NULL)
-            {
-                  ans.push_back(ptr1->data);
-                  ptr1 = ptr1->next;
-            }
-            if (ptr2 != NULL)
-            {
-                  ans.push_back(ptr2->data);
-                  ptr2 = ptr2->next;
-            }
-      }
+            Node *next1 = ptr1->next;
+            Node *next2 = ptr2->next;
 
-      print_list(ans.head);
-      return ans.head;
+            ptr1->next = ptr2;
+            ptr2->next = next1;
+
+            ptr1 = next1;
+            ptr2 = next2;
+      }
 }
 
 int main()
@@ -182,7 +198,8 @@ int main()
       ll.push_back(4);
       ll.push_back(5);
 
-      zigZag(ll.head); // Output: 5 -> 1 -> 4 -> 2 -> 3 -> NULL
+      zigZag(ll.head);
+      print_list(ll.head);
 
       return 0;
 }
