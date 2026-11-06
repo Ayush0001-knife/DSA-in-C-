@@ -112,7 +112,7 @@ Node *splitAtMid(Node *head)
       Node *fast = head;
       Node *prev = NULL;
 
-      while (fast != NULL || fast->next != NULL)
+      while (fast != NULL && fast->next != NULL)
       {
             fast = fast->next->next;
             prev = slow;
@@ -126,41 +126,48 @@ Node *splitAtMid(Node *head)
       return slow;
 }
 
-Node *zigZag(Node *head, Node *tail)
+Node *reverseLL(Node *rightHead)
+{
+      Node *curr = rightHead;
+      Node *prev = NULL;
+      Node *next = NULL;
+
+      while (curr != NULL)
+      {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+      }
+      return prev;
+}
+
+Node *zigZag(Node *head)
 {
       Node *rightHead = splitAtMid(head);
-      Node *temp = rightHead;
-      rightHead = tail;
-      tail = rightHead;
+
+      Node *finalRightHead = reverseLL(rightHead);
 
       List ans;
 
       Node *ptr1 = head;
-      Node *ptr2 = rightHead;
+      Node *ptr2 = finalRightHead;
 
-      while (ptr1->next != NULL || ptr2->next != NULL)
+      while (ptr1 != NULL || ptr2 != NULL)
       {
-            ans.push_back(ptr1->data);
-            ans.push_back(ptr2->data);
-
-            ptr1 = ptr1->next;
-            ptr2 = ptr2->next;
-      }
-      if (ptr1->next == NULL && ptr2->next != NULL)
-      {
-            while (ptr2->next != NULL)
-            {
-                  ans.push_back(ptr2->data);
-            }
-      }
-      if (ptr2->next == NULL && ptr1->next != NULL)
-      {
-            while (ptr1->next != NULL)
+            if (ptr1 != NULL)
             {
                   ans.push_back(ptr1->data);
+                  ptr1 = ptr1->next;
+            }
+            if (ptr2 != NULL)
+            {
+                  ans.push_back(ptr2->data);
+                  ptr2 = ptr2->next;
             }
       }
 
+      print_list(ans.head);
       return ans.head;
 }
 
@@ -169,13 +176,13 @@ int main()
 
       List ll;
 
-      ll.push_front(1);
-      ll.push_front(2);
-      ll.push_front(3);
-      ll.push_front(4);
-      ll.push_front(5); // List: 5 -> 4 -> 3 -> 2 -> 1 -> NULL
+      ll.push_back(1);
+      ll.push_back(2);
+      ll.push_back(3);
+      ll.push_back(4);
+      ll.push_back(5);
 
-      print_list(zigZag(ll.head, ll.tail));
+      zigZag(ll.head); // Output: 5 -> 1 -> 4 -> 2 -> 3 -> NULL
 
       return 0;
 }
