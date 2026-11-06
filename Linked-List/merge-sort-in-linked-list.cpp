@@ -111,7 +111,7 @@ Node *splitAtMid(Node *head)
       Node *fast = head;
       Node *prev = NULL;
 
-      while (fast != NULL || fast->next != NULL)
+      while (fast != NULL && fast->next != NULL)
       {
             prev = slow;
             slow = slow->next;
